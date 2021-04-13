@@ -1,0 +1,25 @@
+def first_func(lst):
+    lst.insert(0, 'Element')
+    lst.insert(1, 'start')
+    lst.insert(len(lst), 'finish')
+    return lst
+
+print(first_func(['hello', 5, 'John', ]))
+
+def second_func(*args):
+    dict_ = {}
+    for i in range(len(args)):
+        dict_[args[i]] = i+1
+    return dict_
+
+print(second_func('x', 5, 'John'))
+
+
+def third_func(tup):
+    tup = list(tup)
+    return list(filter(lambda x: x % 2 == 0, tup)), list(map(lambda x: x**2, tup))
+
+a, b = third_func((1,2,3,4,5))
+
+print(a)
+print(b)
