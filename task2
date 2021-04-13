@@ -1,0 +1,8 @@
+def deposit(start_sum, end_sum, percent):
+    count = 0
+    while start_sum < end_sum:
+        start_sum = percent/12*start_sum + start_sum
+        count += 1
+    print(f'{count} months')
+
+deposit(1000000, 1020100, 0.12)
