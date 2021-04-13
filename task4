@@ -1,0 +1,20 @@
+import telebot
+from telebot import types
+
+
+bot = telebot.TeleBot('1620779876:AAEvwIGJ5J0wQnlUWQVgwzPD2P2XwMP60Rc')
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, 'Welcome! Type your text please')
+
+@bot.message_handler(content_types = ['text'])
+def t(message):
+    new_mes = message.text.lower()
+    count_dict = {}
+    for i in 'aeiou':
+        count = new_mes.count(i)
+        count_dict[i] = count
+    for key, value in count_dict.items():
+        bot.send_message(message.chat.id, f'Letter {key} repeats {value} times')
+bot.polling()
